@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import ListContainer from './components/ListContainer';
+import GoalsContainer from './components/GoalsContainer';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Hello Hiplyst!</h1>
+          <h1 className="App-title">Hello Budget App!</h1>
         </header>
-        <ListContainer />
+        <GoalsContainer />
       </div>
     );
   }

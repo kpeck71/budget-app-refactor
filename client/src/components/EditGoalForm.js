@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-class EditListForm extends Component {
+class EditGoalForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: this.props.list.id,
-            title: this.props.list.title,
-            excerpt: this.props.list.excerpt
+            id: this.props.goal.id,
+            title: this.props.goal.title,
+            amount: this.props.goal.amount
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -16,8 +16,8 @@ class EditListForm extends Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        const { id, title, excerpt } = this.state;
-        this.props.editList(id, title, excerpt);
+        const { id, title, amount } = this.state;
+        this.props.editGoal(id, title, amount);
     }
     render(){
         return(
@@ -27,14 +27,14 @@ class EditListForm extends Component {
                     placeholder="Title..."
                     value={this.state.title}
                     onChange={this.handleChange} />
-            <input  name="excerpt"
+            <input  name="amount"
                     type="text"
                     placeholder="Excerpt..."
-                    value={this.state.excerpt}
+                    value={this.state.amount}
                     onChange={this.handleChange} />
-            <button>Update List</button>
+            <button>Update Goal</button>
         </form>
         )
     }
 }
-export default EditListForm;
+export default EditGoalForm;
