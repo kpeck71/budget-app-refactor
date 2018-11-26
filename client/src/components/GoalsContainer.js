@@ -78,8 +78,9 @@ class GoalsContainer extends Component {
 
   render() {
     return (
-      <div className="goals-container">
-        Goals:
+      <div className="goals-container container-fluid">
+        <div className="row">
+          <h1>Goals</h1>
         {this.state.goals.map( goal => {
           if (this.state.editingGoalId === goal.id ) {
             return (<EditGoalForm
@@ -96,6 +97,7 @@ class GoalsContainer extends Component {
                     /> )
           }
         })}
+        </div>
         <NewGoalForm onNewGoal={this.addNewGoal} />
       </div>
       )

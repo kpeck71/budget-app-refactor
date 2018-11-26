@@ -79,8 +79,9 @@ class ExpensesContainer extends Component {
 
   render() {
     return (
-      <div className="expenses-container">
-        Expenses:
+      <div className="expenses-container container-fluid">
+        <div className="row">
+          <h1>Expenses</h1>
         {this.state.expenses.map( expense => {
           if (this.state.editingExpenseId === expense.id ) {
             return (<EditExpenseForm
@@ -97,7 +98,9 @@ class ExpensesContainer extends Component {
                     /> )
           }
         })}
+        </div>
         <NewExpenseForm onNewExpense={this.addNewExpense} />
+
       </div>
       )
     }

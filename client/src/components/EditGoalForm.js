@@ -6,7 +6,8 @@ class EditGoalForm extends Component {
         this.state = {
             id: this.props.goal.id,
             title: this.props.goal.title,
-            amount: this.props.goal.amount
+            amount: this.props.goal.amount,
+            category: this.props.goal.category
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -29,8 +30,13 @@ class EditGoalForm extends Component {
                     onChange={this.handleChange} />
             <input  name="amount"
                     type="text"
-                    placeholder="Excerpt..."
+                    placeholder="Amount..."
                     value={this.state.amount}
+                    onChange={this.handleChange} />
+                  <input  name="category"
+                    type="dropdown"
+                    placeholder="Category..."
+                    value={this.state.category}
                     onChange={this.handleChange} />
             <button>Update Goal</button>
         </form>

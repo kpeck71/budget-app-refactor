@@ -12,9 +12,8 @@ class App extends Component {
           <h1 className="App-title">Hello Budget App!</h1>
         </header>
         <BudgetContainer />
-        <GoalsContainer />
         <ExpensesContainer />
-
+        <GoalsContainer />
       </div>
     );
   }

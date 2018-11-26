@@ -20,8 +20,8 @@ const NewExpenseForm = ({onNewExpense = f => f}) => {
               type="integer"
               placeholder="Amount..." required />
       <input  ref={input => category = input}
-        type="text"
-        placeholder="Category..." required />
+              type="text"
+              placeholder="Category..." required />
       <button>Add Expense</button>
     </form>
   )

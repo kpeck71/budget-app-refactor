@@ -20,7 +20,7 @@ module Api::V1
       @expense = Expense.new(expense_params)
 
       if @expense.save
-        render json: @expense, status: :created, location: @expense
+        render json: @expense, status: :created
       else
         render json: @expense.errors, status: :unprocessable_entity
       end

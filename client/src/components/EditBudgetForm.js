@@ -20,10 +20,10 @@ class EditBudgetForm extends Component {
     }
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>  
+            <form onSubmit={this.handleSubmit}>
             <input  name="amount"
                     type="text"
-                    placeholder="Excerpt..."
+                    placeholder="amount..."
                     value={this.state.amount}
                     onChange={this.handleChange} />
             <button>Update Budget</button>

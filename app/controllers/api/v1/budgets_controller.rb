@@ -1,11 +1,11 @@
 module Api::V1
 
-  class ExpensesController < ApplicationController
+  class BudgetsController < ApplicationController
     before_action :set_budget, only: [:show, :update, :destroy]
 
     # GET /budgets
     def index
-      @budgets = Expense.all
+      @budgets = Budget.all
 
       render json: @budgets
     end
@@ -17,7 +17,7 @@ module Api::V1
 
     # POST /budgets
     def create
-      @budget = Expense.new(budget_params)
+      @budget = Budget.new(budget_params)
 
       if @budget.save
         render json: @budget, status: :created, location: @budget
@@ -43,7 +43,7 @@ module Api::V1
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_budget
-        @budget = Expense.find(params[:id])
+        @budget = Budget.find(params[:id])
       end
 
       # Only allow a trusted parameter "white list" through.

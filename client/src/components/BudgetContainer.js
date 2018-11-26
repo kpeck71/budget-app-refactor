@@ -9,7 +9,8 @@ class BudgetContainer extends Component {
     super(props)
     this.state = {
       budgets: [],
-      editingBudgetId: null
+      editingBudgetId: null,
+      isHidden: null
     }
     this.addNewBudget = this.addNewBudget.bind(this)
     this.removeBudget = this.removeBudget.bind(this)
@@ -29,11 +30,11 @@ class BudgetContainer extends Component {
   }
 
   addNewBudget(title, amount, category) {
-     axios.post( '/api/v1/budgets', { budget: {title, amount, category} })
+     axios.post( 'https://localhost:3001/api/v1/budgets', { budget: {amount} })
      .then(response => {
          console.log(response)
          const budgets = [ ...this.state.budgets, response.data ]
-         this.setState({budgets})
+         this.setState({budgets, isHidden: true})
      })
      .catch(error => {
          console.log(error)
@@ -46,7 +47,7 @@ class BudgetContainer extends Component {
           const budgets = this.state.budgets.filter(
               budget => budget.id !== id
           )
-          this.setState({budgets})
+          this.setState({budgets, isHidden: false})
       })
       .catch(error => console.log(error))
     }
@@ -80,7 +81,6 @@ class BudgetContainer extends Component {
   render() {
     return (
       <div className="budgets-container">
-        Budget:
         {this.state.budgets.map( budget => {
           if (this.state.editingBudgetId === budget.id ) {
             return (<EditBudgetForm
@@ -97,7 +97,7 @@ class BudgetContainer extends Component {
                     /> )
           }
         })}
-        <NewBudgetForm onNewBudget={this.addNewBudget} />
+        {!this.state.isHidden && <NewBudgetForm onNewBudget={this.addNewBudget} /> }
       </div>
       )
     }

@@ -30,12 +30,12 @@ class EditExpenseForm extends Component {
                     onChange={this.handleChange} />
             <input  name="amount"
                     type="text"
-                    placeholder="Excerpt..."
+                    placeholder="Amount..."
                     value={this.state.amount}
                     onChange={this.handleChange} />
                   <input name="category"
                     type="dropdown"
-                    placeholder="Excerpt..."
+                    placeholder="Category..."
                     value={this.state.category}
                     onChange={this.handleChange} />
             <button>Update Expense</button>
