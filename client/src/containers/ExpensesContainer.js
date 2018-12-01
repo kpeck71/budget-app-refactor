@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-import Expense from './Expense'
-import NewExpenseForm from './NewExpenseForm'
-import EditExpenseForm from './EditExpenseForm'
+import axios from 'axios';
+import Expense from '../components/Expense';
+import NewExpenseForm from '../components/NewExpenseForm';
+import EditExpenseForm from '../components/EditExpenseForm';
 
 class ExpensesContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
       expenses: [],
+      budgets: [],
       editingExpenseId: null
     }
     this.addNewExpense = this.addNewExpense.bind(this)
@@ -23,6 +24,15 @@ class ExpensesContainer extends Component {
       console.log(response)
       this.setState({
         expenses: response.data
+      })
+    })
+    .catch(error => console.log(error))
+
+    axios.get('http://localhost:3001/api/v1/budgets.json')
+    .then(response => {
+      console.log(response)
+      this.setState({
+        budgets: response.data
       })
     })
     .catch(error => console.log(error))
@@ -77,11 +87,21 @@ class ExpensesContainer extends Component {
       .catch(error => console.log(error));
     }
 
+    calculateBudget() {
+      let expenseTotal = this.state.expenses.reduce((acc, cv) => acc + parseInt(cv.amount), 0)
+      let incomeTotal = this.state.budgets.reduce((acc, cv) => acc + cv.amount, 0)
+      return incomeTotal - expenseTotal
+    }
+
   render() {
     return (
+
       <div className="expenses-container container-fluid">
-        <div className="row">
-          <h1>Expenses</h1>
+        <NewExpenseForm onNewExpense={this.addNewExpense} />
+        <div className="expense-alert col-md-auto border rounded p-2 m-2 mx-5 border-alert">
+          You have this much left to spend: ${this.calculateBudget()}
+        </div>
+        <div className="row justify-content-md-center">
         {this.state.expenses.map( expense => {
           if (this.state.editingExpenseId === expense.id ) {
             return (<EditExpenseForm
@@ -99,8 +119,8 @@ class ExpensesContainer extends Component {
           }
         })}
         </div>
-        <NewExpenseForm onNewExpense={this.addNewExpense} />
 
+        <br/>
       </div>
       )
     }

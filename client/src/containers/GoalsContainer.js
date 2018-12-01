@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import Goal from './Goal'
-import NewGoalForm from './NewGoalForm'
-import EditGoalForm from './EditGoalForm'
+import Goal from '../components/Goal';
+import NewGoalForm from '../components/NewGoalForm';
+import EditGoalForm from '../components/EditGoalForm';
 
 class GoalsContainer extends Component {
   constructor(props) {

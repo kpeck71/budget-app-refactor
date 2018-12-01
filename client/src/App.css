@@ -47,6 +47,12 @@
   to { transform: rotate(360deg); }
 }
 
+.expense-alert {
+  font-size: 2em;
+  font-weight: bold;
+  color: red;
+}
+
 /* .App {
   text-align: center;
 }

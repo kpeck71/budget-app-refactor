@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-import Budget from './Budget'
-import NewBudgetForm from './NewBudgetForm'
-import EditBudgetForm from './EditBudgetForm'
+import axios from 'axios';
+import Budget from '../components/Budget';
+import NewBudgetForm from '../components/NewBudgetForm';
+import EditBudgetForm from '../components/EditBudgetForm';
 
 class BudgetContainer extends Component {
   constructor(props) {
