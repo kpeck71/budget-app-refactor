@@ -1,7 +1,7 @@
 import { shallow } from "enzyme";
 import React from "react";
 import ReactDOM from "react-dom";
-import GoalsContainer from "../components/GoalsContainer"
+import GoalsContainer from "../containers/GoalsContainer"
 import './enzyme_setup'
 
 describe("GoalsContainer", () => {

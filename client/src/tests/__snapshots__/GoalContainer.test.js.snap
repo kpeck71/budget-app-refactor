@@ -34,17 +34,50 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          "Goals:",
-          Array [],
+          <div
+            className="row"
+          >
+            <h1>
+              Goals
+            </h1>
+          </div>,
           <NewGoalForm
             onNewGoal={[Function]}
           />,
         ],
-        "className": "goals-container",
+        "className": "goals-container container-fluid",
       },
       "ref": null,
       "rendered": Array [
-        "Goals:",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1>
+                Goals
+              </h1>,
+              Array [],
+            ],
+            "className": "row",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Goals",
+              },
+              "ref": null,
+              "rendered": "Goals",
+              "type": "h1",
+            },
+          ],
+          "type": "div",
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -66,17 +99,50 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            "Goals:",
-            Array [],
+            <div
+              className="row"
+            >
+              <h1>
+                Goals
+              </h1>
+            </div>,
             <NewGoalForm
               onNewGoal={[Function]}
             />,
           ],
-          "className": "goals-container",
+          "className": "goals-container container-fluid",
         },
         "ref": null,
         "rendered": Array [
-          "Goals:",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h1>
+                  Goals
+                </h1>,
+                Array [],
+              ],
+              "className": "row",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Goals",
+                },
+                "ref": null,
+                "rendered": "Goals",
+                "type": "h1",
+              },
+            ],
+            "type": "div",
+          },
           Object {
             "instance": null,
             "key": undefined,
@@ -145,17 +211,50 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          "Goals:",
-          Array [],
+          <div
+            className="row"
+          >
+            <h1>
+              Goals
+            </h1>
+          </div>,
           <NewGoalForm
             onNewGoal={[Function]}
           />,
         ],
-        "className": "goals-container",
+        "className": "goals-container container-fluid",
       },
       "ref": null,
       "rendered": Array [
-        "Goals:",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1>
+                Goals
+              </h1>,
+              Array [],
+            ],
+            "className": "row",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Goals",
+              },
+              "ref": null,
+              "rendered": "Goals",
+              "type": "h1",
+            },
+          ],
+          "type": "div",
+        },
         Object {
           "instance": null,
           "key": undefined,

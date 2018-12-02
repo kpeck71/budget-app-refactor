@@ -1,10 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import rootReducer from './reducers/rootReducer';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+const store = createStore(rootReducer, window.STATE_FROM_SERVER)
 
 ReactDOM.render(
   <MuiThemeProvider>
