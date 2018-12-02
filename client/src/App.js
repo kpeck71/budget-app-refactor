@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import * as actions from './actions/actions';
 import { connect } from 'react-redux';
 import GoalsContainer from './containers/GoalsContainer';
 import ExpensesContainer from './containers/ExpensesContainer';
@@ -10,8 +11,11 @@ import NavBar from './components/NavBar';
 import Status from './components/Status';
 import CompletedGoals from './components/CompletedGoals';
 
-
 class App extends Component {
+
+  componentDidMount() {
+    actions.fetchGoals()
+  }
 
   render() {
     return (
@@ -27,7 +31,7 @@ class App extends Component {
                </React.Fragment>
              }/>
            <Route exact path='/status' render={routerProps => <Status {...routerProps} budget={this.props.budget} />}  />
-           <Route exact path='/completed' component={CompletedGoals}/>
+           // <Route exact path='/completed' render= {routerProps => <CompletedGoals {...routerProps} goals={this.props.goals.goals} /> }/>
            <Route exact path='/ideas' component={GoalIdeas} />
           </React.Fragment>
         </Router>

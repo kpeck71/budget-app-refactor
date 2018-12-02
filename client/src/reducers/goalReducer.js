@@ -38,6 +38,7 @@ function goals(state = {goals: [], loading: false, error: null}, action) {
       };
 
     case FETCH_GOALS_SUCCESS:
+    debugger
       return {
         ...state,
         loading: false,
