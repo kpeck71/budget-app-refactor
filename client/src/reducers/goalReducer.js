@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux'
+
 import {
   SET_GOAL_FILTER,
   GoalFilters,
@@ -5,7 +7,7 @@ import {
   CategoryFilters,
 } from '../actions/actions'
 
-export default function goalReducer(state = { goalFilter: GoalFilters.SHOW_ALL, categoryFilter: CategoryFilters.SHOW_ALL, goals: []}, action) {
+function allFilters(state = { goalFilter: GoalFilters.SHOW_ALL, categoryFilter: CategoryFilters.SHOW_ALL}, action) {
 
   switch (action.type) {
     case SET_GOAL_FILTER:
@@ -20,6 +22,17 @@ export default function goalReducer(state = { goalFilter: GoalFilters.SHOW_ALL, 
 
   default:
     return state
-
   }
 }
+
+function goals(state = {goals: []}, action) {
+  
+    return state
+}
+
+const goalReducer = combineReducers({
+  allFilters,
+  goals
+})
+
+export default goalReducer
