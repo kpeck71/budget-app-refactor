@@ -1,5 +1,5 @@
 .App {
-  text-align: center
+  text-align: center;
 }
 
 .App-logo {
@@ -52,6 +52,12 @@
   font-weight: bold;
   color: red;
 }
+
+.statusSummary {
+  margin: auto;
+  border: dotted grey 1px;
+}
+
 
 /* .App {
   text-align: center;

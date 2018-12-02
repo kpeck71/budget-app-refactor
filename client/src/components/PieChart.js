@@ -17,13 +17,13 @@ class PieChart extends Component {
 
    render(){
      return (
-       <div className="chart">
+       <div className="chart col-8">
          <Pie
            data={this.props.chartData}
            options={{
              title:{
                display:this.props.displayTitle,
-               text:'Spending Types',
+               text:'Spending by Category',
                fontSize:25
              },
              legend:{

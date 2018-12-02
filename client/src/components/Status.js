@@ -45,21 +45,28 @@ const chartData = {
       essentialTotals, funTotals, creditTotals, miscTotals
     ],
     backgroundColor: [
-      'red', 'blue', 'green', 'yellow'
-    ]
+       'rgba(54, 162, 235, 0.6)',
+       'rgba(255, 206, 86, 0.6)',
+       'rgba(75, 192, 192, 0.6)',
+       'rgba(153, 102, 255, 0.6)',
+       'rgba(255, 159, 64, 0.6)',
+       'rgba(255, 99, 132, 0.6)'
+     ]
   }
   ]
 }
 
   return (
-    <div >
-      <h4>Status and Chart.js work will go here</h4>
-      <p>You're spending this much on the essentials: { essentialTotals }</p>
-      <p>You're spending this much on fun: { funTotals }</p>
-      <p>You're spending this much on credit: { creditTotals }</p>
-      <p>You're spending this much on all other stuff: { miscTotals }</p>
-      <PieChart chartData={chartData}/>
-
+    <div className="container">
+      <div className="row">
+        <div className="statusSummary col-4" >
+          <p><strong>Essentials</strong>: ${ essentialTotals }</p>
+          <p><strong>Fun</strong>: ${ funTotals }</p>
+          <p><strong>Credit</strong>: ${ creditTotals }</p>
+          <p><strong>All other stuff</strong>: ${ miscTotals }</p>
+        </div>
+        <PieChart chartData={chartData}/>
+      </div>
     </div>
   )
 }
