@@ -10,12 +10,18 @@ class ExpensesContainer extends Component {
     this.state = {
       expenses: [],
       budgets: [],
-      editingExpenseId: null
+      editingExpenseId: null,
+      isHidden: true
     }
     this.addNewExpense = this.addNewExpense.bind(this)
     this.removeExpense = this.removeExpense.bind(this)
     this.editingExpense = this.editingExpense.bind(this)
     this.editExpense = this.editExpense.bind(this)
+  }
+  toggleHidden() {
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
   }
 
   componentDidMount() {
@@ -96,29 +102,30 @@ class ExpensesContainer extends Component {
     return (
 
       <div className="expenses-container container-fluid">
-        <NewExpenseForm onNewExpense={this.addNewExpense} />
+
         <div className="expense-alert col-md-auto border rounded p-2 m-2 mx-5 border-alert">
           You have this much left to spend: ${this.calculateBudget()}
         </div>
+        {!this.state.isHidden && <NewExpenseForm onNewExpense={this.addNewExpense} /> }
+        <button className="btn btn-outline-warning" onClick={this.toggleHidden.bind(this)} type="submit">New Expense</button>
         <div className="row justify-content-md-center">
-        {this.state.expenses.map( expense => {
-          if (this.state.editingExpenseId === expense.id ) {
-            return (<EditExpenseForm
+          {this.state.expenses.map( expense => {
+            if (this.state.editingExpenseId === expense.id ) {
+              return (<EditExpenseForm
+                        expense={expense}
+                        key={expense.id}
+                        editExpense={this.editExpense}
+                      />)
+            } else {
+            return (<Expense
                       expense={expense}
                       key={expense.id}
-                      editExpense={this.editExpense}
-                    />)
-          } else {
-          return (<Expense
-                    expense={expense}
-                    key={expense.id}
-                    onRemoveExpense={this.removeExpense}
-                    editingExpense={this.editingExpense}
-                    /> )
-          }
-        })}
+                      onRemoveExpense={this.removeExpense}
+                      editingExpense={this.editingExpense}
+                      /> )
+            }
+          })}
         </div>
-
         <br/>
       </div>
       )

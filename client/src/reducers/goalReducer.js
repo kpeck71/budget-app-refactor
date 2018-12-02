@@ -7,7 +7,8 @@ import {
   CategoryFilters,
   FETCH_GOALS_BEGIN,
   FETCH_GOALS_SUCCESS,
-  FETCH_GOALS_FAILURE
+  FETCH_GOALS_FAILURE,
+  TOGGLE_GOAL
 } from '../actions/actions'
 
 function allFilters(state = { goalFilter: GoalFilters.SHOW_ALL, categoryFilter: CategoryFilters.SHOW_ALL}, action) {
@@ -51,6 +52,12 @@ function goals(state = {goals: [], loading: false, error: null}, action) {
       loading: false,
       error: action.payload.error
     };
+
+    case TOGGLE_GOAL:
+    return {
+      ...state,
+      paid: !action.paid
+    }
 
   default:
     return state

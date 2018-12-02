@@ -31,7 +31,6 @@ class App extends Component {
                </React.Fragment>
              }/>
            <Route exact path='/status' render={routerProps => <Status {...routerProps} budget={this.props.budget} />}  />
-           // <Route exact path='/completed' render= {routerProps => <CompletedGoals {...routerProps} goals={this.props.goals.goals} /> }/>
            <Route exact path='/ideas' component={GoalIdeas} />
           </React.Fragment>
         </Router>

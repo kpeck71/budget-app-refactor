@@ -3,6 +3,7 @@ export const SET_CATEGORY_FILTER = 'SET_CATEGORY_FILTER'
 export const FETCH_GOALS_BEGIN = 'FETCH_GOALS_BEGIN'
 export const FETCH_GOALS_SUCCESS = 'FETCH_GOALS_SUCCESS'
 export const FETCH_GOALS_FAILURE = 'FETCH_GOALS_FAILURE'
+export const TOGGLE_GOAL = 'TOGGLE_GOAL'
 
 export const GoalFilters = {
   SHOW_ALL: 'SHOW_ALL',
@@ -26,6 +27,10 @@ export function setGoalFilter(filter) {
 
 export function setCategoryFilter(filter) {
   return { type: SET_CATEGORY_FILTER, filter }
+}
+
+export function toggleGoal(id, paid) {
+  return { type: TOGGLE_GOAL, id, paid}
 }
 
 

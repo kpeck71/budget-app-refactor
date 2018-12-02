@@ -3,20 +3,27 @@ import axios from 'axios'
 import Goal from '../components/Goal';
 import NewGoalForm from '../components/NewGoalForm';
 import EditGoalForm from '../components/EditGoalForm';
-import { connect } from 'react-redux';
-import * as actions from '../actions/actions';
+// import { connect } from 'react-redux';
+// import * as actions from '../actions/actions';
 
 class GoalsContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
       goals: [],
-      editingGoalId: null
+      editingGoalId: null,
+      isHidden: true,
     }
     this.addNewGoal = this.addNewGoal.bind(this)
     this.removeGoal = this.removeGoal.bind(this)
     this.editingGoal = this.editingGoal.bind(this)
     this.editGoal = this.editGoal.bind(this)
+  }
+
+  toggleHidden() {
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
   }
 
   componentDidMount() {
@@ -100,16 +107,17 @@ class GoalsContainer extends Component {
           }
         })}
         </div>
-        <NewGoalForm onNewGoal={this.addNewGoal} />
+        {!this.state.isHidden && <NewGoalForm onNewGoal={this.addNewGoal} /> }
+        <button className="btn btn-outline-info" onClick={this.toggleHidden.bind(this)} type="submit">New Goal</button>
+
       </div>
       )
     }
   }
-const mapStateToProps = state => ({
+{/*const mapStateToProps = state => ({
   goals: state.goals.goals,
   loading: state.goals.loading,
   error: state.goals.error
+}) */}
 
-})
-
-export default connect (mapStateToProps, actions)(GoalsContainer);
+export default GoalsContainer;
