@@ -21,7 +21,7 @@ class ExpensesContainer extends Component {
   componentDidMount() {
     axios.get('http://localhost:3001/api/v1/expenses.json')
     .then(response => {
-      console.log(response)
+      // console.log(response)
       this.setState({
         expenses: response.data
       })
@@ -30,7 +30,6 @@ class ExpensesContainer extends Component {
 
     axios.get('http://localhost:3001/api/v1/budgets.json')
     .then(response => {
-      console.log(response)
       this.setState({
         budgets: response.data
       })

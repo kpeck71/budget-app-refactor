@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { connect } from 'react-redux';
 import GoalsContainer from './containers/GoalsContainer';
 import ExpensesContainer from './containers/ExpensesContainer';
 import BudgetContainer from './containers/BudgetContainer';
@@ -11,6 +12,7 @@ import CompletedGoals from './components/CompletedGoals';
 
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
@@ -22,11 +24,10 @@ class App extends Component {
                  <BudgetContainer />
                  <ExpensesContainer />
                  <GoalsContainer />
-                 <GoalIdeas />
                </React.Fragment>
              }/>
-           <Route exact path='/status' render={routerProps => <Status {...routerProps} budget={this.props.budget} />} />
-           <Route exact path='/completed' render={routerProps => <CompletedGoals {...routerProps} goals={this.props.goals.goals} />}/>
+           <Route exact path='/status' render={routerProps => <Status {...routerProps} budget={this.props.budget} />}  />
+           <Route exact path='/completed' component={CompletedGoals}/>
            <Route exact path='/ideas' component={GoalIdeas} />
           </React.Fragment>
         </Router>
@@ -34,5 +35,6 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = state => { return {goals: state.goals, budget: state.budget} }
 
-export default App;
+export default connect(mapStateToProps)(App);

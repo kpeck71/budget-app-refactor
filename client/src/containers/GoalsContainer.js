@@ -3,6 +3,8 @@ import axios from 'axios'
 import Goal from '../components/Goal';
 import NewGoalForm from '../components/NewGoalForm';
 import EditGoalForm from '../components/EditGoalForm';
+import { connect } from 'react-redux';
+import * as actions from '../actions/actions';
 
 class GoalsContainer extends Component {
   constructor(props) {
@@ -103,5 +105,11 @@ class GoalsContainer extends Component {
       )
     }
   }
+const mapStateToProps = state => ({
+  goals: state.goals.goals,
+  loading: state.goals.loading,
+  error: state.goals.error
 
-export default GoalsContainer;
+})
+
+export default connect (mapStateToProps, actions)(GoalsContainer);

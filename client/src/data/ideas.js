@@ -86,6 +86,6 @@ export const allIdeas = [
   },
 ];
 
-export const getByCategory = category => allIdeas.filter(idea => idea.category == category);
+export const getByCategory = category => allIdeas.filter(idea => idea.category === category);
 
 export const getByAmount = (from, to) => allIdeas.filter(idea => idea.total >= from && idea.total <= to);

@@ -5,6 +5,9 @@ import {
   GoalFilters,
   SET_CATEGORY_FILTER,
   CategoryFilters,
+  FETCH_GOALS_BEGIN,
+  FETCH_GOALS_SUCCESS,
+  FETCH_GOALS_FAILURE
 } from '../actions/actions'
 
 function allFilters(state = { goalFilter: GoalFilters.SHOW_ALL, categoryFilter: CategoryFilters.SHOW_ALL}, action) {
@@ -25,9 +28,32 @@ function allFilters(state = { goalFilter: GoalFilters.SHOW_ALL, categoryFilter: 
   }
 }
 
-function goals(state = {goals: []}, action) {
-  
+function goals(state = {goals: [], loading: false, error: null}, action) {
+  switch (action.type) {
+    case FETCH_GOALS_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+
+    case FETCH_GOALS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        goals: action.payload
+      };
+
+    case FETCH_GOALS_FAILURE:
+    return {
+      ...state,
+      loading: false,
+      error: action.payload.error
+    };
+
+  default:
     return state
+  }
 }
 
 const goalReducer = combineReducers({
