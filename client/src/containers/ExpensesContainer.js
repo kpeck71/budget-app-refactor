@@ -99,11 +99,13 @@ class ExpensesContainer extends Component {
     }
 
   render() {
+    const expenseClassName = this.calculateBudget() <= 500 ? 'expense-low col-md-auto border rounded p-2 m-2 mx-5 border-alert' : 'expense-ok col-md-auto border rounded p-2 m-2 mx-5 border-primary'
+
     return (
 
       <div className="expenses-container container-fluid">
 
-        <div className="expense-alert col-md-auto border rounded p-2 m-2 mx-5 border-alert">
+        <div className={expenseClassName}>
           You have this much left to spend: ${this.calculateBudget()}
         </div>
         {!this.state.isHidden && <NewExpenseForm onNewExpense={this.addNewExpense} /> }

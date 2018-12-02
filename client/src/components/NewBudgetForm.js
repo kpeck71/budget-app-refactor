@@ -1,10 +1,10 @@
 import React from 'react';
 
-const NewBudgetForm = ({onNewBudget = f => f}) => {
+const NewBudgetForm = ({addNewBudget = f => f}) => {
   let amount
   const submit = e => {
       e.preventDefault()
-      onNewBudget(amount.value)
+      addNewBudget(amount.value)
       amount.value = ''
       amount.focus()
   }
@@ -13,7 +13,7 @@ const NewBudgetForm = ({onNewBudget = f => f}) => {
     <form onSubmit={submit}>
       <input  ref={input => amount = input}
               type="integer"
-              placeholder="Amount..." required />
+              placeholder="What is your budget?" required />
       <button>Add Budget</button>
     </form>
   )

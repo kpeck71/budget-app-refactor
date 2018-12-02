@@ -7,7 +7,7 @@ const Goal = ({goal, onRemoveGoal=f=>f, editingGoal=f=>f}) =>
     <h4>{goal.title}</h4>
     <p>Amount: ${goal.amount}</p>
     <p>Category: {goal.category}</p>
-    <button onClick={() => {this.props.updateGoal(goal.id, goal.paid)} }>{ goal.paid ? "Mark Incomplete" : "Mark Complete" } </button>
+    <button class="btn btn-outline-dark" onClick={() => {this.props.updateGoal(goal.id, goal.paid)} }>{ goal.paid ? "Mark Incomplete" : "Mark Complete" } </button>
 
   </div>
 

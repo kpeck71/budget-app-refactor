@@ -6,8 +6,8 @@ const Expense = ({expense, onRemoveExpense=f=>f, editingExpense=f=>f}) =>
     <h4>{expense.title}</h4>
     <p>{expense.amount}</p>
     <p>{expense.category}</p>
-    <button onClick={()=> onRemoveExpense(expense.id)}>Erase</button>
-    <button onClick={()=> editingExpense(expense.id)}>Edit</button>
+    <button class="btn-outline-primary btn-sm" onClick={()=> onRemoveExpense(expense.id)}>Erase</button>
+    <button class="btn-secondary btn-sm" onClick={()=> editingExpense(expense.id)}>Edit</button>
   </div>
 
 export default Expense;

@@ -47,10 +47,16 @@
   to { transform: rotate(360deg); }
 }
 
-.expense-alert {
+.expense-low {
   font-size: 2em;
   font-weight: bold;
   color: red;
+}
+
+.expense-ok {
+  font-size: 1.75em;
+  font-weight: bold;
+  color: blue;
 }
 
 .statusSummary {
@@ -58,6 +64,15 @@
   border: dotted grey 1px;
 }
 
+.container-fluid {
+  margin: 10px;
+  padding: 10px;
+}
+
+.budget-view {
+  font-size: 1.2em;
+  font-weight: bold;
+}
 
 /* .App {
   text-align: center;

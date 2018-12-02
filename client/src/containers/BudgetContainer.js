@@ -10,12 +10,18 @@ class BudgetContainer extends Component {
     this.state = {
       budgets: [],
       editingBudgetId: null,
-      isHidden: null
+      isHidden: false
     }
     this.addNewBudget = this.addNewBudget.bind(this)
     this.removeBudget = this.removeBudget.bind(this)
     this.editingBudget = this.editingBudget.bind(this)
     this.editBudget = this.editBudget.bind(this)
+  }
+
+  toggleHidden() {
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
   }
 
   componentDidMount() {
@@ -29,10 +35,10 @@ class BudgetContainer extends Component {
     .catch(error => console.log(error))
   }
 
-  addNewBudget(title, amount, category) {
-     axios.post( 'https://localhost:3001/api/v1/budgets', { budget: {amount} })
+  addNewBudget(amount) {
+     axios.post( 'http://localhost:3001/api/v1/budgets', { budget: {amount} })
      .then(response => {
-         console.log(response)
+         console.log('addNewBudget ', response)
          const budgets = [ ...this.state.budgets, response.data ]
          this.setState({budgets, isHidden: true})
      })
@@ -58,21 +64,20 @@ class BudgetContainer extends Component {
       })
     }
 
-    editBudget(id, title, amount, category) {
+    editBudget(id, amount) {
       axios.put( '/api/v1/budgets/' + id, {
           budget: {
-              title,
-              amount,
-              category
+              amount
           }
       })
       .then(response => {
           console.log(response);
           const budgets = this.state.budgets;
-          budgets[id-1] = {id, title, amount, category}
+          budgets[id-1] = {id,amount}
           this.setState(() => ({
               budgets,
-              editingBudgetId: null
+              editingBudgetId: null,
+              isHidden: true
           }))
       })
       .catch(error => console.log(error));
@@ -80,7 +85,7 @@ class BudgetContainer extends Component {
 
   render() {
     return (
-      <div className="budgets-container">
+      <div className="budgets-container container-fluid">
         {this.state.budgets.map( budget => {
           if (this.state.editingBudgetId === budget.id ) {
             return (<EditBudgetForm
@@ -97,7 +102,7 @@ class BudgetContainer extends Component {
                     /> )
           }
         })}
-        {!this.state.isHidden && <NewBudgetForm onNewBudget={this.addNewBudget} /> }
+        {!this.state.isHidden && <NewBudgetForm addNewBudget={this.addNewBudget} /> }
       </div>
       )
     }
