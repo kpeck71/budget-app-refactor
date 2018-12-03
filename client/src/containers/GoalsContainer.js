@@ -88,8 +88,9 @@ class GoalsContainer extends Component {
   render() {
     return (
       <div className="goals-container container-fluid">
+        <hr/>
+        <h2>Spending Goals</h2>
         <div className="row">
-          <h1>Goals</h1>
         {this.state.goals.map( goal => {
           if (this.state.editingGoalId === goal.id ) {
             return (<EditGoalForm
@@ -108,7 +109,7 @@ class GoalsContainer extends Component {
         })}
         </div>
         {!this.state.isHidden && <NewGoalForm onNewGoal={this.addNewGoal} /> }
-        <button className="btn btn-outline-info" onClick={this.toggleHidden.bind(this)} type="submit">New Goal</button>
+        <button className="btn btn-outline-info" style={{marginTop:'15px'}} onClick={this.toggleHidden.bind(this)} type="submit">New Goal</button>
 
       </div>
       )

@@ -53,6 +53,12 @@ class GoalIdeas extends Component {
       })
     }
 
+    renderIdeas() {
+       return this.state.goalIdeas.map((idea) =>
+       <Goal goal={idea} className='warning' cardDetails="goalIdea" />
+      )
+    }
+
   render() {
     const typeOptions = [
       { value: 'charity', label: 'Charity' },
@@ -65,20 +71,13 @@ class GoalIdeas extends Component {
     ]
     const typeOption = "Choose a Category"
     const amountOption= "Choose an Amount"
-    const IdeaBrowser = props => {
 
-    const renderIdeas = (
-      this.state.goalIdeas.map((idea) =>
-       <Goal goalType={idea} className='warning' cardDetails="goalIdea" />
-      )
-    )
-  }
 
     return (
-      <div className="GoalIdeas">
-        <div style={{width: '35%', margin: 'auto', padding: '5px'}}>
+      <div className="GoalIdeas container-fluid">
           <button style={{marginTop: 10}} onClick={this.onClick}>Find goals</button>
-          {this.renderIdeas}
+        <div className="row">
+          {this.renderIdeas()}
         </div>
       </div>
     );

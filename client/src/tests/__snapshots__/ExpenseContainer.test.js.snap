@@ -1,21 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`when given \`goals\` should render correct number of goals 1`] = `
+exports[`when given \`expenses\` should render correct number of expenses 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): ShallowWrapper {
     Symbol(enzyme.__root__): [Circular],
-    Symbol(enzyme.__unrendered__): <GoalsContainer
-      goals={
+    Symbol(enzyme.__unrendered__): <ExpensesContainer
+      expenses={
         Array [
           Object {
             "amount": 2000,
+            "category": "essentials",
             "id": 1,
-            "title": "Trip to Paris",
+            "title": "Rent",
           },
           Object {
-            "amount": 1000,
+            "amount": 121,
+            "category": "essentials",
             "id": 2,
-            "title": "New bike",
+            "title": "MetroCard",
           },
         ]
       }
@@ -34,28 +36,26 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <hr />,
-          <h2>
-            Spending Goals
-          </h2>,
           <div
-            className="row"
-          />,
+            className="expense-low col-md-auto border rounded p-2 m-2 mx-5 border-alert"
+          >
+            You have this much left to spend: $
+            0
+          </div>,
           false,
           <button
-            className="btn btn-outline-info"
+            className="btn btn-outline-warning"
             onClick={[Function]}
-            style={
-              Object {
-                "marginTop": "15px",
-              }
-            }
             type="submit"
           >
-            New Goal
+            New Expense
           </button>,
+          <div
+            className="row justify-content-md-center"
+          />,
+          <br />,
         ],
-        "className": "goals-container container-fluid",
+        "className": "expenses-container container-fluid",
       },
       "ref": null,
       "rendered": Array [
@@ -63,32 +63,18 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": "hr",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
           "props": Object {
-            "children": "Spending Goals",
+            "children": Array [
+              "You have this much left to spend: $",
+              0,
+            ],
+            "className": "expense-low col-md-auto border rounded p-2 m-2 mx-5 border-alert",
           },
           "ref": null,
-          "rendered": "Spending Goals",
-          "type": "h2",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [],
-            "className": "row",
-          },
-          "ref": null,
-          "rendered": Array [],
+          "rendered": Array [
+            "You have this much left to spend: $",
+            0,
+          ],
           "type": "div",
         },
         false,
@@ -97,17 +83,35 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "New Goal",
-            "className": "btn btn-outline-info",
+            "children": "New Expense",
+            "className": "btn btn-outline-warning",
             "onClick": [Function],
-            "style": Object {
-              "marginTop": "15px",
-            },
             "type": "submit",
           },
           "ref": null,
-          "rendered": "New Goal",
+          "rendered": "New Expense",
           "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [],
+            "className": "row justify-content-md-center",
+          },
+          "ref": null,
+          "rendered": Array [],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
         },
       ],
       "type": "div",
@@ -119,28 +123,26 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <hr />,
-            <h2>
-              Spending Goals
-            </h2>,
             <div
-              className="row"
-            />,
+              className="expense-low col-md-auto border rounded p-2 m-2 mx-5 border-alert"
+            >
+              You have this much left to spend: $
+              0
+            </div>,
             false,
             <button
-              className="btn btn-outline-info"
+              className="btn btn-outline-warning"
               onClick={[Function]}
-              style={
-                Object {
-                  "marginTop": "15px",
-                }
-              }
               type="submit"
             >
-              New Goal
+              New Expense
             </button>,
+            <div
+              className="row justify-content-md-center"
+            />,
+            <br />,
           ],
-          "className": "goals-container container-fluid",
+          "className": "expenses-container container-fluid",
         },
         "ref": null,
         "rendered": Array [
@@ -148,32 +150,18 @@ ShallowWrapper {
             "instance": null,
             "key": undefined,
             "nodeType": "host",
-            "props": Object {},
-            "ref": null,
-            "rendered": null,
-            "type": "hr",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
             "props": Object {
-              "children": "Spending Goals",
+              "children": Array [
+                "You have this much left to spend: $",
+                0,
+              ],
+              "className": "expense-low col-md-auto border rounded p-2 m-2 mx-5 border-alert",
             },
             "ref": null,
-            "rendered": "Spending Goals",
-            "type": "h2",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [],
-              "className": "row",
-            },
-            "ref": null,
-            "rendered": Array [],
+            "rendered": Array [
+              "You have this much left to spend: $",
+              0,
+            ],
             "type": "div",
           },
           false,
@@ -182,17 +170,35 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "New Goal",
-              "className": "btn btn-outline-info",
+              "children": "New Expense",
+              "className": "btn btn-outline-warning",
               "onClick": [Function],
-              "style": Object {
-                "marginTop": "15px",
-              },
               "type": "submit",
             },
             "ref": null,
-            "rendered": "New Goal",
+            "rendered": "New Expense",
             "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [],
+              "className": "row justify-content-md-center",
+            },
+            "ref": null,
+            "rendered": Array [],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
           },
         ],
         "type": "div",
@@ -251,28 +257,26 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <hr />,
-          <h2>
-            Spending Goals
-          </h2>,
           <div
-            className="row"
-          />,
+            className="expense-low col-md-auto border rounded p-2 m-2 mx-5 border-alert"
+          >
+            You have this much left to spend: $
+            0
+          </div>,
           false,
           <button
-            className="btn btn-outline-info"
+            className="btn btn-outline-warning"
             onClick={[Function]}
-            style={
-              Object {
-                "marginTop": "15px",
-              }
-            }
             type="submit"
           >
-            New Goal
+            New Expense
           </button>,
+          <div
+            className="row justify-content-md-center"
+          />,
+          <br />,
         ],
-        "className": "goals-container container-fluid",
+        "className": "expenses-container container-fluid",
       },
       "ref": null,
       "rendered": Array [
@@ -280,32 +284,18 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": "hr",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
           "props": Object {
-            "children": "Spending Goals",
+            "children": Array [
+              "You have this much left to spend: $",
+              0,
+            ],
+            "className": "expense-low col-md-auto border rounded p-2 m-2 mx-5 border-alert",
           },
           "ref": null,
-          "rendered": "Spending Goals",
-          "type": "h2",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [],
-            "className": "row",
-          },
-          "ref": null,
-          "rendered": Array [],
+          "rendered": Array [
+            "You have this much left to spend: $",
+            0,
+          ],
           "type": "div",
         },
         false,
@@ -314,17 +304,35 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "New Goal",
-            "className": "btn btn-outline-info",
+            "children": "New Expense",
+            "className": "btn btn-outline-warning",
             "onClick": [Function],
-            "style": Object {
-              "marginTop": "15px",
-            },
             "type": "submit",
           },
           "ref": null,
-          "rendered": "New Goal",
+          "rendered": "New Expense",
           "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [],
+            "className": "row justify-content-md-center",
+          },
+          "ref": null,
+          "rendered": Array [],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
         },
       ],
       "type": "div",
